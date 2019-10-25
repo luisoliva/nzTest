@@ -9,12 +9,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
+import { VistaGeneralComponent } from './vista-general/vista-general.component';
 
 registerLocaleData(es);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VistaGeneralComponent
   ],
   imports: [
     BrowserModule,

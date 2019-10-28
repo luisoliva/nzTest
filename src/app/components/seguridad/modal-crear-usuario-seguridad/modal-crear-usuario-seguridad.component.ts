@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ModalCrearUsuarioSeguridadComponent implements OnInit {
   @Input() lVisible = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -15,5 +16,7 @@ export class ModalCrearUsuarioSeguridadComponent implements OnInit {
   handleCancel() {
     this.lVisible = false;
   }
+
+
 
 }

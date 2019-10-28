@@ -1,0 +1,5 @@
+.rolHoverable:hover{
+  cursor: pointer;
+  background-color: #507fb0;
+  color: white;
+}

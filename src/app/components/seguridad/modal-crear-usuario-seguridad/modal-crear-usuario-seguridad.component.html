@@ -1,14 +1,135 @@
-<nz-modal [(nzVisible)]="lVisible" nzTitle="Crear cuenta de usuario" (nzOnCancel)="handleCancel()">
+<nz-modal [nzWidth]="600" [(nzVisible)]="lVisible" [nzTitle]="modalTitle" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="handleCancel()">
+  <ng-template #modalTitle>
+    <i style="margin-right: 10px" nz-icon nzType="user" nzTheme="outline"></i>Crear cuenta de usuario
+  </ng-template>
+
+  <ng-template #modalContent>
+    <nz-tabset [nzTabPosition]="'top'" [nzType]="'card'">
+      <nz-tab nzTitle="Información general">
+        <div nz-row>
+          <form nz-form>
+            <nz-form-item>
+              <nz-form-label [nzSpan]="8">Correo electrónico</nz-form-label>
+              <nz-form-control
+                [nzSpan]="12"
+                nzErrorTip="Should be combination of numbers & alphabets"
+              >
+                <input nz-input name="errorValid" />
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSpan]="8">Nombre(s)</nz-form-label>
+              <nz-form-control [nzSpan]="12">
+                <input nz-input name="warningValid" />
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSpan]="8">Apellidos</nz-form-label>
+              <nz-form-control
+                [nzSpan]="12"
+                nzValidatingTip="I'm validating the content"
+              >
+                <input nz-input name="validating" />
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-label [nzSpan]="8">Centro de costo</nz-form-label>
+              <nz-form-control
+                [nzSpan]="12"
+              >
+                <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Selecciona un centro de costo">
+                  <nz-option nzLabel="A" nzValue="A"></nz-option>
+                  <nz-option nzLabel="B" nzValue="B"></nz-option>
+                  <nz-option nzLabel="C" nzValue="C"></nz-option>
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item>
+          </form>
+        </div>
+      </nz-tab>
+      <nz-tab nzTitle="Roles">
+        <div nz-row nzAlign="middle" nzType="flex" nzJustify="space-between">
+          <div nz-col nzSpan="8">
+            <label nz-checkbox>Seleccionar todos</label>
+          </div>
+          <div nz-col nzSpan="8">
+            <nz-input-group [nzSuffix]="suffixIconSearch">
+              <input type="text" nz-input placeholder="Buscar" />
+            </nz-input-group>
+            <ng-template #suffixIconSearch>
+              <i nz-icon nzType="search"></i>
+            </ng-template>
+          </div>
+        </div>
+        <div nz-row nzGutter="10" style="background: #ECECEC;padding:10px;margin-top:20px;overflow: auto;height: 250px;">
+          <div *ngFor="let i of [0,0,0,0,0]" nz-col nzSpan="12">
+            <nz-card class="rolHoverable" style="margin-bottom: 10px;border-radius: 10px;">
+              <div nz-row nzType="flex" nzJustify="space-between">
+                <div style="font-weight: bold;font-size: 18px" nz-col nzSpan="20">
+                  Rol A
+                </div>
+                <div nz-col nzSpan="2">
+                  <label nz-checkbox></label>
+                </div>
+              </div>
+              <p style="margin-top: 10px">A structural directive that renders a template for each item in a collection. The directive is placed on an element, which becomes the parent of the cloned templates.</p>
+            </nz-card>
+          </div>
+        </div>
+
+      </nz-tab>
+      <nz-tab nzTitle="Configuraciones">
+        <div style="margin-top: 5px">
+          <div nz-row nzType="flex" nzJustify="space-between">
+            <div nz-col nzSpan="20">
+              <h4>¿Bloquear usuario por intentos fallidos?</h4>
+            </div>
+            <div nz-col nzSpan="2">
+              <nz-switch ngModel="true"></nz-switch>
+            </div>
+          </div>
+          <div nz-row>
+            <div nz-col nzSpan="20">
+              <p>By default, the change detector assumes that the object instance identifies the node in the iterable. When this function is supplied</p>
+            </div>
+          </div>
+        </div>
         <div>
-          <p>Modal Content</p>
-          <p>Modal Content</p>
-          <p>Modal Content</p>
-          <p>Modal Content</p>
-          <p>Modal Content</p>
+          <div nz-row nzType="flex" nzJustify="space-between">
+            <div nz-col nzSpan="20">
+              <h4>¿Permitir repetir contraseñas?</h4>
+            </div>
+            <div nz-col nzSpan="2">
+              <nz-switch></nz-switch>
+            </div>
+          </div>
+          <div nz-row>
+            <div nz-col nzSpan="20">
+              <p>The function receives two inputs, the iteration index and the node object ID.</p>
+            </div>
+          </div>
         </div>
-        <div *nzModalFooter>
-          <span>Modal Footer: </span>
-          <button nz-button nzType="default" (click)="handleCancel()">Custom Callback</button>
-          <button nz-button nzType="primary" (click)="handleOk()" [nzLoading]="isConfirmLoading">Custom Submit</button>
+        <div>
+          <div nz-row nzType="flex" nzJustify="space-between">
+            <div nz-col nzSpan="20">
+              <h4>¿La contraseña nunca expira?</h4>
+            </div>
+            <div nz-col nzSpan="2">
+              <nz-switch></nz-switch>
+            </div>
+          </div>
+          <div nz-row>
+            <div nz-col nzSpan="20">
+              <p>A structural directive that renders a template for each item in a collection. The directive is placed on an element, which becomes the parent of the cloned templates.</p>
+            </div>
+          </div>
         </div>
-      </nz-modal>
+      </nz-tab>
+    </nz-tabset>
+  </ng-template>
+
+  <ng-template #modalFooter>
+    <button nz-button nzType="primary" ><i nz-icon nzType="save" nzTheme="outline"></i>Guardar</button>
+    <button nz-button nzType="danger" ><i nz-icon nzType="close" nzTheme="outline"></i>Cancelar</button>
+  </ng-template>
+</nz-modal>

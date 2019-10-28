@@ -4,7 +4,7 @@
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
-      "severity": "warning"
+      "severity": "default"
     },
     "component-class-suffix": true,
     "contextual-lifecycle": true,
@@ -12,7 +12,6 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
       "camelCase"
     ],
     "component-selector": [

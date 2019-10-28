@@ -1,0 +1,51 @@
+<nz-layout>
+  <nz-content>
+    <div nz-row>
+      <div nz-col>
+          <nz-breadcrumb nzSeparator=">">
+              <nz-breadcrumb-item>
+                  <a>Egob-X</a>
+              </nz-breadcrumb-item>
+              <nz-breadcrumb-item>
+                Cuentas de usuario
+              </nz-breadcrumb-item>
+            </nz-breadcrumb>
+            <br />
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col>
+       <h2>
+          <i nz-icon nzType="user" nzTheme="outline"></i> Lista de cuentas de usuarios
+       </h2> 
+      </div>
+    </div>
+    <div nz-row nzType ="flex" nzJustify="space-between" style="margin-bottom: 16px;">
+      <div nz-col [nzSm]=8  class="container-busqueda">
+          <nz-input-group [nzSuffix]="suffixIconSearch">
+              <input type="text" nz-input placeholder=" Inserte su texto" />
+            </nz-input-group>
+            <ng-template #suffixIconSearch>
+              <i nz-icon nzType="search"></i>
+            </ng-template>
+      </div>
+      <div nz-col [nzSm]=10>
+        <div class="d-flex align-items-space-between">
+          <button nz-button nzType="default"><i nz-icon nzType="file-search" nzTheme="outline"></i> Busqueda Avanzada</button>
+          <button nz-button nzType="default"><i nz-icon nzType="copy" nzTheme="outline"></i> Clonar</button>
+          <nz-upload nzAction="">
+            <button nz-button><i nz-icon nzType="import" nzTheme="outline"></i> Importar</button>
+          </nz-upload>
+          <button nz-button  nzType="default"><i nz-icon nzType="export" nzTheme="outline"></i> Exportar</button>  
+         <button nz-button (click)="_abrirModal('crear-usuario')" nzType="default"><i nz-icon nzType="user-add" nzTheme="outline"></i>Crear</button>        
+         <modal-crear-usuario-seguridad [lVisible] ="lModalCrearUsuario"></modal-crear-usuario-seguridad>  
+        </div>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col>
+        <app-seguridad-tabla></app-seguridad-tabla>
+      </div>
+    </div>
+  </nz-content>
+</nz-layout>

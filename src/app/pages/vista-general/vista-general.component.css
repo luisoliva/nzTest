@@ -1,3 +1,5 @@
+
+
 .logo {
   width: 120px;
   height: 31px;
@@ -8,6 +10,7 @@
 
 .header-menu {
   line-height: 64px;
+  background-color: blueviolet;
 }
 
 .sider-menu {
@@ -27,4 +30,14 @@ nz-content {
   background: #fff;
   padding: 24px;
   min-height: 280px;
+}
+
+
+
+.d-flex{
+  display: flex;
+  width: 100%;
+}
+.align-items-space-between{
+  justify-content: space-between;
 }

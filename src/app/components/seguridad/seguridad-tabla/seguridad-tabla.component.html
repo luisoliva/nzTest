@@ -1,0 +1,42 @@
+<nz-table
+#ajaxTable
+nzShowSizeChanger
+[nzFrontPagination]="false"
+[nzData]="listOfData"
+[nzLoading]="loading"
+[nzTotal]="total"
+[(nzPageIndex)]="pageIndex"
+[(nzPageSize)]="pageSize"
+(nzPageIndexChange)="searchData()"
+(nzPageSizeChange)="searchData(true)"
+>
+<thead (nzSortChange)="sort($event)" nzSingleSort>
+  <tr>
+    <th nzShowSort nzSortKey="email"><span>Correo</span></th>
+    <th nzShowSort nzSortKey="name">Nombre</th>
+    <!-- <th nzShowFilter [nzFilters]="filterGender" (nzFilterChange)="updateFilter($event)">Gender</th> -->
+    <th nzShowSort  nzSortKey="lBloqueado">¿Bloqueado?</th>
+    <th nzShowSort nzSortKey="dtFechaAlta">Fecha alta</th>
+    <th nzShowSort nzSortKey="dtFechaModificación">Fecha modificación</th>
+    <th nzShowSort nzSortKey="lActivo">Activo</th>
+    <th nzShowSort nzSortKey="">Acciones</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let data of ajaxTable.data">
+    <td>{{ data.email }}</td>
+    <td>{{ data.name.first }} {{ data.name.last }}</td>
+    <td [nzShowCheckbox] = "true"></td>
+    <td>12-diciembre-2018</td>
+    <td>16-diciembre-2018</td>
+    <td [nzShowCheckbox] = "true"></td>
+    <td>
+        <nz-tag [nzColor]="'magenta'"><i nz-icon nzType="search"></i></nz-tag>
+        <nz-tag [nzColor]="'red'"><i nz-icon nzType="search"></i></nz-tag>
+        <nz-tag [nzColor]="'volcano'"><i nz-icon nzType="search"></i></nz-tag>
+        <nz-tag [nzColor]="'orange'"><i nz-icon nzType="search"></i></nz-tag>
+        <nz-tag [nzColor]="'gold'"><i nz-icon nzType="search"></i></nz-tag>
+    </td>
+  </tr>
+</tbody>
+</nz-table>

@@ -9,14 +9,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
-import { VistaGeneralComponent } from './vista-general/vista-general.component';
+// Componentes EgobX
+import { VistaGeneralComponent } from './pages/vista-general/vista-general.component';
+import { AppNavigationComponent } from './components/app-navigation/app-navigation.component';
+import { SeguridadTablaComponent } from './components/seguridad/seguridad-tabla/seguridad-tabla.component';
+import { SeguridadService } from './services/seguridad/seguridad.service';
+import { ModalCrearUsuarioSeguridadComponent } from './components/seguridad/modal-crear-usuario-seguridad/modal-crear-usuario-seguridad.component';
 
 registerLocaleData(es);
 
 @NgModule({
   declarations: [
     AppComponent,
-    VistaGeneralComponent
+    VistaGeneralComponent,
+    AppNavigationComponent,
+    SeguridadTablaComponent,
+    ModalCrearUsuarioSeguridadComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +35,8 @@ registerLocaleData(es);
     BrowserAnimationsModule,
     NzGridModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: es_ES }],
+  providers: [{ provide: NZ_I18N, useValue: es_ES },
+  SeguridadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

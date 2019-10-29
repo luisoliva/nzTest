@@ -1,0 +1,35 @@
+<nz-modal [nzWidth]="600" [(nzVisible)]="lVisible" [nzTitle]="modalTitle" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="handleCancel()">
+  <ng-template #modalTitle>
+    <i style="margin-right: 10px" nz-icon nzType="filter" nzTheme="outline"></i>Busqueda avanzada
+  </ng-template>
+
+  <ng-template #modalContent>
+    <div nz-row>
+      <form nz-form>
+        <nz-form-item>
+          <nz-form-label [nzSpan]="8">Correo electrónico</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzErrorTip="Should be combination of numbers & alphabets">
+            <input nz-input name="errorValid" />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSpan]="8">Nombre(s)</nz-form-label>
+          <nz-form-control [nzSpan]="12">
+            <input nz-input name="warningValid" />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSpan]="8">Apellidos</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzValidatingTip="I'm validating the content">
+            <input nz-input name="validating" />
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </div>
+  </ng-template>
+
+  <ng-template #modalFooter>
+    <button nz-button nzType="primary" ><i nz-icon nzType="search" nzTheme="outline"></i>Buscar</button>
+    <button nz-button nzType="danger" ><i nz-icon nzType="close" nzTheme="outline"></i>Cerrar</button>
+  </ng-template>
+</nz-modal>

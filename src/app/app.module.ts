@@ -15,6 +15,8 @@ import { AppNavigationComponent } from './components/app-navigation/app-navigati
 import { SeguridadTablaComponent } from './components/seguridad/seguridad-tabla/seguridad-tabla.component';
 import { SeguridadService } from './services/seguridad/seguridad.service';
 import { ModalCrearUsuarioSeguridadComponent } from './components/seguridad/modal-crear-usuario-seguridad/modal-crear-usuario-seguridad.component';
+import { ModalBusquedaAvanzadaSeguridadComponent } from './components/seguridad/modal-busqueda-avanzada-seguridad/modal-busqueda-avanzada-seguridad.component';
+import { ModalClonarSeguridadComponent } from './components/seguridad/modal-clonar-seguridad/modal-clonar-seguridad.component';
 
 registerLocaleData(es);
 
@@ -24,7 +26,9 @@ registerLocaleData(es);
     VistaGeneralComponent,
     AppNavigationComponent,
     SeguridadTablaComponent,
-    ModalCrearUsuarioSeguridadComponent
+    ModalCrearUsuarioSeguridadComponent,
+    ModalBusquedaAvanzadaSeguridadComponent,
+    ModalClonarSeguridadComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VistaGeneralComponent implements OnInit {
   lModalCrearUsuario: boolean = false;
+  lModalBusquedaAvanzada: boolean = false;
+  lModalClonar: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -17,6 +20,12 @@ export class VistaGeneralComponent implements OnInit {
     switch (modal) {
       case 'crear-usuario':
         this.lModalCrearUsuario = true;
+        break;
+      case 'busqueda-avanzada':
+        this.lModalBusquedaAvanzada = true;
+        break;
+      case 'clonar':
+        this.lModalClonar = true;
         break;
       default:
         console.log('no ha seleccionado algun modal');

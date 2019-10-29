@@ -1,0 +1,116 @@
+<nz-modal [nzWidth]="700" [(nzVisible)]="lVisible" [nzTitle]="modalTitle" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="handleCancel()">
+  <ng-template #modalTitle>
+    <i style="margin-right: 10px" nz-icon nzType="copy" nzTheme="outline"></i>Clonar roles de usuario a otros
+  </ng-template>
+
+  <ng-template #modalContent>
+    <nz-tabset [(nzSelectedIndex)]="currentTab" [nzTabPosition]="'left'" [nzType]="'card'">
+      <nz-tab nzTitle="Origen">
+        <div nz-row nzType="flex" nzJustify="center">
+          <div nz-col nzSpan="16">
+            <h4 style="text-align: center;font-weight: normal">Seleccione el usuario origen</h4>
+            <nz-select [ngModel]="'Luis'" style="width: 100%!important;margin-bottom: 20px" nzShowSearch nzAllowClear nzPlaceHolder="Luis Oliva">
+              <nz-option nzLabel="Luis" nzValue="Luis"></nz-option>
+              <nz-option nzLabel="Alberto" nzValue="Alberto"></nz-option>
+              <nz-option nzLabel="José" nzValue="José"></nz-option>
+            </nz-select>
+          </div>
+        </div>
+        <div nz-row nzAlign="middle" nzType="flex" nzJustify="space-between">
+          <div nz-col nzSpan="12">
+            <label nz-checkbox (ngModelChange)="selectAllRoles()" [ngModel]="rolesAllSelected" >Seleccionar todos</label>
+          </div>
+          <div nz-col nzSpan="8">
+            <nz-input-group [nzSuffix]="suffixIconSearch">
+              <input type="text" nz-input placeholder="Buscar" />
+            </nz-input-group>
+            <ng-template #suffixIconSearch>
+              <i nz-icon nzType="search"></i>
+            </ng-template>
+          </div>
+        </div>
+        <div nz-row nzGutter="10" style="background: #ECECEC;padding:10px;margin-top:20px;overflow: auto;height: 250px;border-radius: 10px">
+          <div *ngFor="let rol of roles" nz-col nzSpan="12">
+            <nz-card (click)="selectRole(rol)" nzHoverable style="margin-bottom: 10px;border-radius: 10px;">
+              <div nz-row nzType="flex" nzJustify="space-between">
+                <div style="font-weight: bold;font-size: 18px" nz-col nzSpan="20">
+                  Rol A
+                </div>
+                <div nz-col nzSpan="2">
+                  <label nz-checkbox (ngModelChange)="selectRole(rol)" [ngModel]="rol.checked"></label>
+                </div>
+              </div>
+              <p style="margin-top: 10px">A structural directive that renders a template for each item in a collection. The directive is placed on an element, which becomes the parent of the cloned templates.</p>
+            </nz-card>
+          </div>
+        </div>
+      </nz-tab>
+      <nz-tab [nzDisabled]="!didSelectedRol()" nzTitle="Destino">
+        <div nz-row nzAlign="middle" nzType="flex" nzJustify="space-between">
+          <div nz-col nzSpan="8">
+            <label nz-checkbox>Seleccionar todos</label>
+          </div>
+          <div nz-col nzSpan="8">
+            <nz-input-group [nzSuffix]="suffixIconSearch">
+              <input type="text" nz-input placeholder="Buscar" />
+            </nz-input-group>
+            <ng-template #suffixIconSearch>
+              <i nz-icon nzType="search"></i>
+            </ng-template>
+          </div>
+        </div>
+        <div style="margin-top: 10px" nz-row nzType="flex" nzJustify="space-between" nzGutter="20">
+          <div nz-col nzSpan="12">
+            <h4 style="text-align: center;margin-top: 10px">Usuarios seleccionables</h4>
+            <div nz-row>
+              <div nz-col nzSpan="24" style="background: #ECECEC;padding:10px;overflow: auto;height: 250px;border-radius: 10px">
+                <div *ngFor="let user of selectableUsers" nz-col nzSpan="24">
+                  <nz-card (click)="selectUser(user)" nzHoverable style="margin-bottom: 10px;border-radius: 10px;padding-top: 0!important;">
+                    <div nz-row nzType="flex" nzJustify="space-between">
+                      <div style="font-weight: bold;font-size: 18px" nz-col nzSpan="24">
+                        {{user.name}}
+                      </div>
+                    </div>
+                    <p style="margin-top: 0;margin-bottom: 0">{{user.description}}</p>
+                  </nz-card>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div nz-col nzSpan="12">
+            <h4 style="text-align: center;margin-top: 10px">Usuarios seleccionados</h4>
+            <div nz-row>
+              <div nz-col nzSpan="24" style="background: #ECECEC;padding:10px;overflow: auto;height: 250px;border-radius: 10px">
+                <div *ngFor="let user of selectedUsers" nz-col nzSpan="24">
+                  <nz-card (click)="unselectUser(user)" nzHoverable style="margin-bottom: 10px;border-radius: 10px;padding-top: 0!important;">
+                    <div nz-row nzType="flex" nzJustify="space-between">
+                      <div style="font-weight: bold;font-size: 18px" nz-col nzSpan="24">
+                        {{user.name}}
+                      </div>
+                    </div>
+                    <p style="margin-top: 0;margin-bottom: 0">{{user.description}}</p>
+                  </nz-card>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nz-tab>
+    </nz-tabset>
+  </ng-template>
+
+  <ng-template #modalFooter>
+    <div nz-row>
+      <div nz-col nzSpan="12">
+        <div nz-row nzType="flex" nzJustify="start">
+          <button (click)="currentTab=0" [hidden]="hideBackButton()" nz-button nzType="default" ><i nz-icon nzType="left" nzTheme="outline"></i>Anterior</button>
+          <button [disabled]="!didSelectedRol()" (click)="currentTab=1" [hidden]="hideNextButton()" nz-button nzType="default" >Siguiente<i nz-icon nzType="right" nzTheme="outline"></i></button>
+        </div>
+      </div>
+      <div nz-col nzSpan="12">
+        <button [disabled]="!canSave()" [hidden]="currentTab==0" nz-button nzType="primary" ><i nz-icon nzType="save" nzTheme="outline"></i>Guardar</button>
+        <button nz-button nzType="danger" ><i nz-icon nzType="close" nzTheme="outline"></i>Cancelar</button>
+      </div>
+    </div>
+  </ng-template>
+</nz-modal>

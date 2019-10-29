@@ -16,7 +16,4 @@ export class ModalCrearUsuarioSeguridadComponent implements OnInit {
   handleCancel() {
     this.lVisible = false;
   }
-
-
-
 }

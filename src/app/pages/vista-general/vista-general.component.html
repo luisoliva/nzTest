@@ -38,7 +38,7 @@
           </nz-upload>
           <button nz-button  nzType="default"><i nz-icon nzType="export" nzTheme="outline"></i> Exportar</button>  
          <button nz-button (click)="_abrirModal('crear-usuario')" nzType="default"><i nz-icon nzType="user-add" nzTheme="outline"></i>Crear</button>        
-         <modal-crear-usuario-seguridad [lVisible] ="lModalCrearUsuario"></modal-crear-usuario-seguridad>  
+         <modal-crear-usuario-seguridad [lVisible] ="lModalCrearUsuario" (cerrarModal) = "_cerrarModal($event)"></modal-crear-usuario-seguridad>  
         </div>
       </div>
     </div>

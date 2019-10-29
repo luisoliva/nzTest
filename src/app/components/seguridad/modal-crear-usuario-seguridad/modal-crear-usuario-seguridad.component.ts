@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'modal-crear-usuario-seguridad',
@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ModalCrearUsuarioSeguridadComponent implements OnInit {
   @Input() lVisible = false;
+  @Output() cerrarModal = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit() {
@@ -14,6 +15,7 @@ export class ModalCrearUsuarioSeguridadComponent implements OnInit {
 
   handleCancel() {
     this.lVisible = false;
+    this.cerrarModal.emit('crear-usuario');
   }
 
 }

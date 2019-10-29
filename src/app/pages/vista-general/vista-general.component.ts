@@ -24,4 +24,16 @@ export class VistaGeneralComponent implements OnInit {
     }
   }
 
+  _cerrarModal($event) {
+    console.log('cerrando modal' + $event);
+    switch ($event) {
+      case 'crear-usuario':
+        this.lModalCrearUsuario = false;
+        break;
+      default:
+        break;
+    }
+
+  } 
+
 }

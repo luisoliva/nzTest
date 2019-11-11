@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +15,10 @@ import { AppNavigationComponent } from './components/app-navigation/app-navigati
 import { SeguridadTablaComponent } from './components/seguridad/seguridad-tabla/seguridad-tabla.component';
 import { SeguridadService } from './services/seguridad/seguridad.service';
 import { ModalCrearUsuarioSeguridadComponent } from './components/seguridad/modal-crear-usuario-seguridad/modal-crear-usuario-seguridad.component';
-
+import { ModalBusquedaAvanzadaSeguridadComponent } from './components/seguridad/modal-busqueda-avanzada-seguridad/modal-busqueda-avanzada-seguridad.component';
+import { ModalClonarSeguridadComponent } from './components/seguridad/modal-clonar-seguridad/modal-clonar-seguridad.component';
+// import { TOKEN_IREADER_REPO } from 'src/core/IReaderRepo.repository';
+import { UserReaderRepo } from 'src/core/ReaderRepo.repository';
 registerLocaleData(es);
 
 @NgModule({
@@ -24,7 +27,9 @@ registerLocaleData(es);
     VistaGeneralComponent,
     AppNavigationComponent,
     SeguridadTablaComponent,
-    ModalCrearUsuarioSeguridadComponent
+    ModalCrearUsuarioSeguridadComponent,
+    ModalBusquedaAvanzadaSeguridadComponent,
+    ModalClonarSeguridadComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,12 @@ registerLocaleData(es);
     NzGridModule
   ],
   providers: [{ provide: NZ_I18N, useValue: es_ES },
-  SeguridadService],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+    SeguridadService],
+    bootstrap: [AppComponent]
+  })
+  // export let InjectorInstance: Injector;
+export class AppModule {
+    constructor() {
+      // InjectorInstance = this.injector;
+    }
+   }

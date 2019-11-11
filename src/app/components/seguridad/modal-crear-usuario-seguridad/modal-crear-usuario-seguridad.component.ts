@@ -13,13 +13,11 @@ export class ModalCrearUsuarioSeguridadComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("afdfdsfdfsd");
   }
 
   handleCancel() {
     this.lVisible = false;
     this.cerrarModal.emit('crear-usuario');
   }
-
-
-
 }

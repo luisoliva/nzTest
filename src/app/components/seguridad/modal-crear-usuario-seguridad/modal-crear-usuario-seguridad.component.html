@@ -10,10 +10,7 @@
           <form nz-form>
             <nz-form-item>
               <nz-form-label [nzSpan]="8">Correo electrónico</nz-form-label>
-              <nz-form-control
-                [nzSpan]="12"
-                nzErrorTip="Should be combination of numbers & alphabets"
-              >
+              <nz-form-control [nzSpan]="12" nzErrorTip="Should be combination of numbers & alphabets">
                 <input nz-input name="errorValid" />
               </nz-form-control>
             </nz-form-item>
@@ -25,18 +22,13 @@
             </nz-form-item>
             <nz-form-item>
               <nz-form-label [nzSpan]="8">Apellidos</nz-form-label>
-              <nz-form-control
-                [nzSpan]="12"
-                nzValidatingTip="I'm validating the content"
-              >
+              <nz-form-control [nzSpan]="12" nzValidatingTip="I'm validating the content">
                 <input nz-input name="validating" />
               </nz-form-control>
             </nz-form-item>
             <nz-form-item>
               <nz-form-label [nzSpan]="8">Centro de costo</nz-form-label>
-              <nz-form-control
-                [nzSpan]="12"
-              >
+              <nz-form-control [nzSpan]="12">
                 <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Selecciona un centro de costo">
                   <nz-option nzLabel="A" nzValue="A"></nz-option>
                   <nz-option nzLabel="B" nzValue="B"></nz-option>
@@ -61,7 +53,7 @@
             </ng-template>
           </div>
         </div>
-        <div nz-row nzGutter="10" style="background: #ECECEC;padding:10px;margin-top:20px;overflow: auto;height: 250px;">
+        <div nz-row nzGutter="10" style="background: #ECECEC;padding:10px;margin-top:20px;overflow: auto;height: 250px;border-radius: 10px">
           <div *ngFor="let i of [0,0,0,0,0]" nz-col nzSpan="12">
             <nz-card class="rolHoverable" style="margin-bottom: 10px;border-radius: 10px;">
               <div nz-row nzType="flex" nzJustify="space-between">

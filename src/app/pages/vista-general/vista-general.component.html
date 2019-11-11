@@ -32,15 +32,15 @@
       <div nz-col [nzSm]=10>
         <div class="d-flex align-items-space-between">
           <button nz-button (click)="_abrirModal('busqueda-avanzada')" nzType="default"><i nz-icon nzType="file-search" nzTheme="outline"></i> Busqueda Avanzada</button>
-          <button nz-button nzType="default"><i nz-icon nzType="copy" nzTheme="outline"></i> Clonar</button>
+          <button nz-button (click)="_abrirModal('clonar')" nzType="default"><i nz-icon nzType="copy" nzTheme="outline"></i> Clonar</button>
           <nz-upload nzAction="">
             <button nz-button><i nz-icon nzType="import" nzTheme="outline"></i> Importar</button>
           </nz-upload>
-          <button nz-button  nzType="default"><i nz-icon nzType="export" nzTheme="outline"></i> Exportar</button>  
-         <button nz-button (click)="_abrirModal('crear-usuario')" nzType="default"><i nz-icon nzType="user-add" nzTheme="outline"></i>Crear</button>        
-         <modal-crear-usuario-seguridad [lVisible] ="lModalCrearUsuario" (cerrarModal) = "_cerrarModal($event)"></modal-crear-usuario-seguridad>  
-        
-         
+          <button nz-button  nzType="default"><i nz-icon nzType="export" nzTheme="outline"></i> Exportar</button>
+         <button nz-button (click)="_abrirModal('crear-usuario')" nzType="default"><i nz-icon nzType="user-add" nzTheme="outline"></i>Crear</button>
+         <modal-crear-usuario-seguridad [lVisible] ="lModalCrearUsuario"></modal-crear-usuario-seguridad>
+         <modal-busqueda-avanzada-seguridad [lVisible]="lModalBusquedaAvanzada"></modal-busqueda-avanzada-seguridad>
+         <modal-clonar-seguridad [lVisible]="lModalClonar"></modal-clonar-seguridad>
         </div>
       </div>
     </div>

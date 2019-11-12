@@ -48,6 +48,10 @@ export class SeguridadTablaComponent implements OnInit {
     this.searchData(true);
   }
 
+  pruebaChange($event){
+    console.log($event);
+  }
+
   ngOnInit(): void {
     this.searchData();
 

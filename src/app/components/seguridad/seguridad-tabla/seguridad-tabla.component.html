@@ -23,20 +23,24 @@ nzShowSizeChanger
   </tr>
 </thead>
 <tbody>
-  <tr *ngFor="let data of ajaxTable.data">
-    <td>{{ data.email }}</td>
-    <td>{{ data.name.first }} {{ data.name.last }}</td>
-    <td [nzShowCheckbox] = "true"></td>
-    <td>12-diciembre-2018</td>
-    <td>16-diciembre-2018</td>
-    <td [nzShowCheckbox] = "true"></td>
-    <td>
-        <nz-tag [nzColor]="'magenta'"><i nz-icon nzType="search"></i></nz-tag>
-        <nz-tag [nzColor]="'red'"><i nz-icon nzType="search"></i></nz-tag>
-        <nz-tag [nzColor]="'volcano'"><i nz-icon nzType="search"></i></nz-tag>
-        <nz-tag [nzColor]="'orange'"><i nz-icon nzType="search"></i></nz-tag>
-        <nz-tag [nzColor]="'gold'"><i nz-icon nzType="search"></i></nz-tag>
-    </td>
-  </tr>
+  <tr *ngFor="let oUser of ajaxTable.data; let i= index;">
+  <td>{{ oUser.email }}</td>
+  <td>{{ oUser.name.first }} {{ oUser.name.last }}</td>
+  <td [nzShowCheckbox] = "true"></td>
+  <td>12-diciembre-2018</td>
+  <td>16-diciembre-2018</td>
+  <td [nzShowCheckbox] = "true"></td>
+  <td>
+  
+    <app-check-estatus [idUsuario]="i" (ChangeStatus)="pruebaChange($event)"></app-check-estatus>
+    <nz-tag [nzColor]="'red'"><i nz-icon nzType="search"></i></nz-tag>
+    <nz-tag [nzColor]="'volcano'"><i nz-icon nzType="search"></i></nz-tag>
+    <nz-tag [nzColor]="'orange'"><i nz-icon nzType="search"></i></nz-tag>
+    <nz-tag [nzColor]="'gold'"><i nz-icon nzType="search"></i></nz-tag>
+  </td>
+</tr> 
+<!-- <tr *ngFor="let data of ajaxTable.data">
+  <app-row  [oUser]="data"></app-row>
+</tr> -->
 </tbody>
 </nz-table>

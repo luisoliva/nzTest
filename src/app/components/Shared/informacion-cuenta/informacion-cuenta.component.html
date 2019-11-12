@@ -1,0 +1,32 @@
+    <div nz-row>
+      <form nz-form [formGroup]="validateForm" >
+        <nz-form-item>
+          <nz-form-label [nzSpan]="8" nzRequired nzFor="email">Correo electrónico</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzErrorTip="La entrada no es válida E-mail!">
+            <input nz-input (blur)="OnBlur()" name="Nombre" id="Nombre" [(ngModel)]="lstInformation.Nombre" formControlName="Nombres"  />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSpan]="8" nzRequired>Nombre(s)</nz-form-label>
+          <nz-form-control [nzSpan]="12">
+            <input nz-input name="warningValid" />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSpan]="8" nzRequired>Apellidos</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzValidatingTip="I'm validating the content">
+            <input nz-input name="validating" />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSpan]="8" nzRequired>Centro de costo</nz-form-label>
+          <nz-form-control [nzSpan]="12">
+            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Selecciona un centro de costo">
+              <nz-option nzLabel="A" nzValue="A"></nz-option>
+              <nz-option nzLabel="B" nzValue="B"></nz-option>
+              <nz-option nzLabel="C" nzValue="C"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </div>

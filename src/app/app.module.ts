@@ -4,7 +4,7 @@ import { NgModule, Injector } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {NgZorroAntdModule, NZ_I18N, es_ES, NzGridModule} from 'ng-zorro-antd';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
@@ -19,6 +19,9 @@ import { ModalBusquedaAvanzadaSeguridadComponent } from './components/seguridad/
 import { ModalClonarSeguridadComponent } from './components/seguridad/modal-clonar-seguridad/modal-clonar-seguridad.component';
 // import { TOKEN_IREADER_REPO } from 'src/core/IReaderRepo.repository';
 import { UserReaderRepo } from 'src/core/ReaderRepo.repository';
+import { InformacionCuentaComponent } from './components/Shared/informacion-cuenta/informacion-cuenta.component';
+import { RowComponent } from './components/Shared/row/row.component';
+import { CheckEstatusComponent } from './components/Shared/check-estatus/check-estatus.component';
 registerLocaleData(es);
 
 @NgModule({
@@ -29,7 +32,10 @@ registerLocaleData(es);
     SeguridadTablaComponent,
     ModalCrearUsuarioSeguridadComponent,
     ModalBusquedaAvanzadaSeguridadComponent,
-    ModalClonarSeguridadComponent
+    ModalClonarSeguridadComponent,
+    InformacionCuentaComponent,
+    RowComponent,
+    CheckEstatusComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +44,8 @@ registerLocaleData(es);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NzGridModule
+    NzGridModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: es_ES },
     SeguridadService],

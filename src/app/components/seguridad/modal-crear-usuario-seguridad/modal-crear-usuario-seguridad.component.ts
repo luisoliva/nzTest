@@ -10,6 +10,10 @@ export class ModalCrearUsuarioSeguridadComponent implements OnInit {
 
   @Output() cerrarModal = new EventEmitter<string>();
 
+  lstUsuario:any[] = [];
+
+  lActivo:boolean = true;
+  
   constructor() { }
 
   ngOnInit() {
@@ -19,5 +23,15 @@ export class ModalCrearUsuarioSeguridadComponent implements OnInit {
   handleCancel() {
     this.lVisible = false;
     this.cerrarModal.emit('crear-usuario');
+  }
+  
+  prueba($event){
+    this.lActivo=true;
+    console.log(`resultado: ${$event}`)
+  }
+
+  validarformulario($event){
+    console.log($event)
+   // this.lActivo = $event;
   }
 }

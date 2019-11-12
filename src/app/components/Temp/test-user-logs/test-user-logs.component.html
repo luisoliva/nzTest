@@ -1,0 +1,19 @@
+
+<div style="width: 100%">
+  <h1>Historial</h1>
+  <div style="width: 48%;float: left">
+    <nz-list [nzDataSource]="logs" nzBordered [nzHeader]="'lista de logs'" [nzRenderItem]="defaultItem">
+      <ng-template #defaultItem let-item>
+        <nz-list-item (click)="setCurrentLogInViewer(item)">
+          <span class="ant-typography"></span>
+          {{ item }}
+        </nz-list-item>
+      </ng-template>
+    </nz-list>
+  </div>
+  <div style="width: 48%;float: left">
+    <nz-descriptions nzTitle="User Info">
+      <nz-descriptions-item nzTitle="Log">{{currentLogSelected}}</nz-descriptions-item>
+    </nz-descriptions>
+  </div>
+</div>

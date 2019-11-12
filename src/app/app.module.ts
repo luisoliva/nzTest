@@ -22,6 +22,9 @@ import { UserReaderRepo } from 'src/core/ReaderRepo.repository';
 import { InformacionCuentaComponent } from './components/Shared/informacion-cuenta/informacion-cuenta.component';
 import { RowComponent } from './components/Shared/row/row.component';
 import { CheckEstatusComponent } from './components/Shared/check-estatus/check-estatus.component';
+import { TestUserLogsComponent } from './components/Temp/test-user-logs/test-user-logs.component';
+import {LogsListComponent} from './components/Temp/test-user-logs/logs-list/logs-list.component';
+import {LogsViewerComponent} from './components/Temp/test-user-logs/logs-viewer/logs-viewer.component';
 registerLocaleData(es);
 
 @NgModule({
@@ -35,7 +38,10 @@ registerLocaleData(es);
     ModalClonarSeguridadComponent,
     InformacionCuentaComponent,
     RowComponent,
-    CheckEstatusComponent
+    CheckEstatusComponent,
+    TestUserLogsComponent,
+    LogsListComponent,
+    LogsViewerComponent
   ],
   imports: [
     BrowserModule,
